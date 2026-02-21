@@ -26,6 +26,7 @@ A demo MCP (Model Context Protocol) server for testing and debugging tools using
 test-mcp/
   pyproject.toml   # Project config and dependencies
   server.py        # MCP server entry point
+  README.md        # Setup and usage instructions
   CLAUDE.md        # Points to this file
   AGENTS.md        # This file — project docs and agent instructions
 ```
@@ -37,24 +38,9 @@ test-mcp/
 - **When `launch_year` is omitted**: GET `/v4/launches` returning all launches
 - **Returns**: Formatted text with flight number, name, date, success status, and details
 
-### Running the Server
+### Usage
 
-```bash
-uv run server.py
-```
-
-### MCP Client Configuration
-
-```json
-{
-  "mcpServers": {
-    "spacex": {
-      "command": "uv",
-      "args": ["--directory", "/Users/rickysmith/dev/test-mcp", "run", "server.py"]
-    }
-  }
-}
-```
+See `README.md` for instructions on starting the server, using the MCP Inspector, and configuring MCP clients.
 
 ## User Preferences
 

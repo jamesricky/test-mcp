@@ -1,6 +1,6 @@
-# SpaceX MCP Server
+# Test MCP Server
 
-A demo MCP server for testing and debugging tools, using the SpaceX API as a concrete example.
+A demo MCP server for testing and debugging tools.
 
 ## Requirements
 
@@ -29,7 +29,7 @@ Add to your Claude Code or Claude Desktop MCP config:
 ```json
 {
   "mcpServers": {
-    "spacex": {
+    "test-mcp": {
       "command": "uv",
       "args": ["--directory", "/Users/rickysmith/dev/test-mcp", "run", "server.py"]
     }
@@ -41,7 +41,7 @@ Add to your Claude Code or Claude Desktop MCP config:
 
 ### `launches`
 
-Get SpaceX launches, optionally filtered by year.
+Get launches, optionally filtered by year.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|

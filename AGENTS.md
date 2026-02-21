@@ -41,6 +41,12 @@ test-mcp/
 - **When `launch_year` is omitted**: GET `/v4/launches` returning all launches
 - **Returns**: Formatted text with flight number, name, date, success status, and details
 
+### Tool: `most_trending_words`
+
+- **Parameters**: none
+- **Returns**: A static list of 10 currently trending words (e.g. "glazing", "rizz", "mid", etc.)
+- **Trigger**: Use when asked about what words are trending
+
 ### Usage
 
 See `README.md` for instructions on starting the server, using the MCP Inspector, and configuring MCP clients.

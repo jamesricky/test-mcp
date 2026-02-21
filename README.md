@@ -46,3 +46,9 @@ Get launches, optionally filtered by year.
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `launch_year` | `int` | No | Filter to a specific year (e.g. `2020`). Omit for all launches. |
+
+### `most_trending_words`
+
+Returns a static list of 10 currently trending words (e.g. "rizz", "glazing", "mid").
+
+No parameters.

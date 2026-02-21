@@ -24,11 +24,14 @@ A demo MCP (Model Context Protocol) server for testing and debugging tools using
 
 ```
 test-mcp/
-  pyproject.toml   # Project config and dependencies
-  server.py        # MCP server entry point
-  README.md        # Setup and usage instructions
-  CLAUDE.md        # Points to this file
-  AGENTS.md        # This file — project docs and agent instructions
+  pyproject.toml        # Project config and dependencies
+  server.py             # MCP server entry point (imports and registers tools)
+  tools/                # One file per MCP tool
+    __init__.py
+    launches.py         # launches tool implementation
+  README.md             # Setup and usage instructions
+  CLAUDE.md             # Points to this file
+  AGENTS.md             # This file — project docs and agent instructions
 ```
 
 ### Tool: `launches`

@@ -49,6 +49,9 @@ Get launches, optionally filtered by year.
 
 ### `most_trending_words`
 
-Returns a static list of 10 currently trending words (e.g. "rizz", "glazing", "mid").
+Returns a list of currently trending words.
 
-No parameters.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `language` | `str` | No | Language for trending words: `"english"` (default) or `"german"`. |
+| `limit` | `int` | No | Maximum number of words to return. Omit for all words. |

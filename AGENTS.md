@@ -43,8 +43,10 @@ test-mcp/
 
 ### Tool: `most_trending_words`
 
-- **Parameters**: none
-- **Returns**: A static list of 10 currently trending words (e.g. "glazing", "rizz", "mid", etc.)
+- **Parameters**:
+  - `language` (optional `str`, default `"english"`) — Language for trending words. Supported: `"english"`, `"german"`.
+  - `limit` (optional `int`) — Maximum number of words to return. Omit for all words.
+- **Returns**: A list of currently trending words in the specified language
 - **Trigger**: Use when asked about what words are trending
 
 ### Usage

@@ -6,21 +6,19 @@ A demo MCP server for testing and debugging tools.
 
 - [uv](https://docs.astral.sh/uv/) — Python project manager
 
-## Starting the Server
+## Running the Server
 
-```bash
-uv run server.py
-```
+`uv run server.py` is the command that **MCP clients** (e.g. Claude Desktop, Cursor) use when they spawn the server via their MCP config. The server runs over STDIO and is not meant to be run interactively in a terminal.
 
-The server runs over STDIO and blocks until stopped. Press `Ctrl+C` to stop it.
+If you run `uv run server.py` directly in a terminal, it may fail with a JSON parse error because stdin can receive non-JSON input (e.g. a newline from the TTY).
 
-## Interactive Testing (MCP Inspector)
+**For interactive testing** in a terminal, use the MCP Inspector instead:
 
 ```bash
 uv run mcp dev server.py
 ```
 
-Opens the MCP Inspector in your browser for interactive tool testing.
+This opens the MCP Inspector in your browser. The CLI starts the server as a subprocess and sends only valid JSON-RPC over STDIO, so the server runs correctly.
 
 ## MCP Client Configuration
 

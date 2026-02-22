@@ -1,8 +1,8 @@
-# SpaceX MCP Server
+# Test MCP Server
 
 ## Project Goal
 
-A demo MCP (Model Context Protocol) server for testing and debugging tools using an MCP server. It exposes a `launches` tool backed by the SpaceX API as a concrete example, and runs locally over STDIO for use with Claude Code, Claude Desktop, or any MCP-compatible client.
+A demo MCP (Model Context Protocol) server for testing and debugging tools. It exposes tools such as `launches` (backed by the SpaceX API) as concrete examples, and runs locally over STDIO for use with Claude Code, Claude Desktop, or any MCP-compatible client.
 
 ## Implementation
 

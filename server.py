@@ -15,7 +15,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-mcp = FastMCP("spacex")
+mcp = FastMCP("test-mcp")
 
 
 def logged_tool(func):

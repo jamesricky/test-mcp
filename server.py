@@ -2,6 +2,7 @@ import functools
 import inspect
 import json
 import logging
+import os
 import sys
 
 from mcp.server.fastmcp import FastMCP
@@ -15,7 +16,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-mcp = FastMCP("test-mcp")
+mcp = FastMCP("test-mcp", port=6767)
 
 
 def logged_tool(func):
@@ -41,4 +42,8 @@ mcp.tool()(logged_tool(most_trending_words))
 
 
 if __name__ == "__main__":
-    mcp.run()
+    transport = os.environ.get("MCP_TRANSPORT", "streamable-http")
+    if transport == "stdio":
+        mcp.run(transport="stdio")
+    else:
+        mcp.run(transport="streamable-http")

@@ -8,32 +8,45 @@ A demo MCP server for testing and debugging tools.
 
 ## Running the Server
 
-`uv run server.py` is the command that **MCP clients** (e.g. Claude Desktop, Cursor) use when they spawn the server via their MCP config. The server runs over STDIO and is not meant to be run interactively in a terminal.
+Start the server locally:
 
-If you run `uv run server.py` directly in a terminal, it may fail with a JSON parse error because stdin can receive non-JSON input (e.g. a newline from the TTY).
+```bash
+uv run server.py
+```
 
-**For interactive testing** in a terminal, use the MCP Inspector instead:
+The server listens at **`http://127.0.0.1:6767/mcp`** (streamable HTTP). Connect from Claude Desktop or Claude in the browser via **Add custom connector** and enter:
+
+```
+http://127.0.0.1:6767/mcp
+```
+
+No config file is needed for this URL-based connection.
+
+## Claude Desktop (config file)
+
+To use the server via Claude Desktop's config file (command/args), Claude spawns the process and talks over STDIO. Set `MCP_TRANSPORT=stdio` in the server's `env` so the server uses STDIO when spawned. Do not run `uv run server.py` manually when using this flow.
+
+Example (add to your Claude Desktop config, e.g. `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+
+```json
+"mcpServers": {
+  "test-mcp": {
+    "command": "uv",
+    "args": ["--directory", "/path/to/test-mcp", "run", "server.py"],
+    "env": {
+      "MCP_TRANSPORT": "stdio"
+    }
+  }
+}
+```
+
+## Interactive Testing (MCP Inspector)
 
 ```bash
 uv run mcp dev server.py
 ```
 
-This opens the MCP Inspector in your browser. The CLI starts the server as a subprocess and sends only valid JSON-RPC over STDIO, so the server runs correctly.
-
-## MCP Client Configuration
-
-Add to your Claude Code or Claude Desktop MCP config:
-
-```json
-{
-  "mcpServers": {
-    "test-mcp": {
-      "command": "uv",
-      "args": ["--directory", "/Users/rickysmith/dev/test-mcp", "run", "server.py"]
-    }
-  }
-}
-```
+Opens the MCP Inspector in your browser. With the server using streamable-http, the Inspector can connect to the same URL (`http://127.0.0.1:6767/mcp`) once the server is running, or the CLI may start the server in a compatible mode.
 
 ## Available Tools
 

@@ -2,7 +2,7 @@
 
 ## Project Goal
 
-A demo MCP (Model Context Protocol) server for testing and debugging tools. It exposes tools such as `launches` (backed by the SpaceX API) as concrete examples, and runs locally over STDIO for use with Claude Code, Claude Desktop, or any MCP-compatible client.
+A demo MCP (Model Context Protocol) server for testing and debugging tools. It exposes tools such as `launches` (backed by the SpaceX API) as concrete examples, and runs locally over streamable HTTP (port 6767) for use with Claude Desktop Add custom connector, Claude in the browser, or any MCP-compatible client.
 
 ## Implementation
 
@@ -11,7 +11,7 @@ A demo MCP (Model Context Protocol) server for testing and debugging tools. It e
 - **Python 3.12+** managed via `uv`
 - **mcp[cli]** — official MCP Python SDK with FastMCP
 - **httpx** — async HTTP client for SpaceX API requests
-- **Transport**: STDIO (default)
+- **Transport**: Dual. STDIO when `MCP_TRANSPORT=stdio` (e.g. Claude Desktop config with command/args). Streamable HTTP on port 6767 by default (manual run; connect via URL `http://127.0.0.1:6767/mcp` or Add custom connector).
 
 ### SpaceX API (v4)
 
